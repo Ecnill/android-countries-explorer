@@ -1,5 +1,10 @@
 import io.gitlab.arturbosch.detekt.Detekt
 
+buildscript {
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30")
+    }
+}
 @Suppress("UnstableApiUsage", "DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.detekt)

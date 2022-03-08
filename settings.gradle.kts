@@ -18,3 +18,6 @@ dependencyResolutionManagement {
 }
 
 include(":app")
+include(":design")
+
+include(":feature:launch")

@@ -1,6 +1,5 @@
 <resources>
-    <style name="Theme.Countries" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">#00796B</item>
+    <style name="Theme.Countries" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor">#00796B</item>
     </style>
 </resources>

@@ -632,6 +632,7 @@ style:
     maxJumpCount: 1
   MagicNumber:
     active: true
+    ignoreAnnotated: [ 'Composable' ]
     excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
     ignoreNumbers:
       - '-1'

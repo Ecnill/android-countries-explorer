@@ -1,0 +1,4 @@
+<resources>
+    <string name="launch_icon_content_description">This is the splash screen logo</string>
+    <string name="launch_title">Explore</string>
+</resources>

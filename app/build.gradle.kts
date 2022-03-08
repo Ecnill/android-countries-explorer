@@ -1,10 +1,11 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    kotlin("android")
 }
 
 apply<ConfigAndroidBuild>()
 apply<ConfigCompiler>()
+apply<ConfigComposeCompiler>()
 
 android {
     defaultConfig {
@@ -25,5 +26,13 @@ android {
 }
 
 dependencies {
+    implementation(project(":feature:launch"))
+
+    implementation(libs.koin.android)
+
     implementation(libs.androidx.appcompat)
+    implementation(libs.android.material)
+    implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.timber)
 }
