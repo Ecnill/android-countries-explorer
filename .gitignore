@@ -1,0 +1,18 @@
+# Gradle
+.gradle
+.build
+build
+out
+captures
+projectFilesBackup
+
+# Android
+local.properties
+
+# IntelliJ Idea / Android Studio
+*.iml
+.idea/*
+!.idea/codeStyles/
+
+# macOS
+.DS_Store
