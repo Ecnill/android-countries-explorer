@@ -28,6 +28,7 @@ android {
 dependencies {
     implementation(project(":feature:launch"))
     implementation(project(":feature:region"))
+    implementation(project(":feature:country"))
 
     implementation(libs.koin.android)
 

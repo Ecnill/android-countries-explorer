@@ -25,7 +25,7 @@ import org.koin.androidx.compose.getViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun RegionsScreen(navigateToNext: (region: String) -> Unit) = DesignTheme {
+fun RegionsScreen(navigateToNext: (region: String, regionResId: Int) -> Unit) = DesignTheme {
     val viewModel: RegionsViewModel = getViewModel()
     Scaffold(
         topBar = { Header(title = stringResource(id = R.string.region_header_title)) },
@@ -47,11 +47,11 @@ fun RegionsScreen(navigateToNext: (region: String) -> Unit) = DesignTheme {
 }
 
 @Composable
-private fun RegionItem(region: Region, onItemClicked: (String) -> Unit) {
+private fun RegionItem(region: Region, onItemClicked: (String, Int) -> Unit) {
     Card(
         backgroundColor = DesignTheme.colors.secondary,
         contentColor = DesignTheme.colors.onSecondary,
-        modifier = Modifier.padding(16.dp).fillMaxWidth().clickable { onItemClicked(region.key) },
+        modifier = Modifier.padding(16.dp).fillMaxWidth().clickable { onItemClicked(region.key, region.resId) },
         elevation = 4.dp,
     ) {
         Text(
