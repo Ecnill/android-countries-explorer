@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import ecnill.country.feature.launch.scene.LaunchScreen
+import ecnill.country.feature.region.scene.RegionsScreen
 
 @Composable
 internal fun NavigationGraph() {
@@ -14,7 +15,12 @@ internal fun NavigationGraph() {
         composable("launch") {
             LaunchScreen {
                 navController.popBackStack()
+                navController.navigate("regions")
             }
+        }
+
+        composable("regions") {
+            RegionsScreen { /* navController.navigate("countries/{region}") */ }
         }
     }
 }

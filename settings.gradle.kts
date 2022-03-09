@@ -21,3 +21,4 @@ include(":app")
 include(":design")
 
 include(":feature:launch")
+include(":feature:region")

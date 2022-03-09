@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="region_header_title">Choose the region</string>
+
+    <string name="region_name_africa">Africa</string>
+    <string name="region_name_americas">Americas</string>
+    <string name="region_name_europe">Europe</string>
+    <string name="region_name_asia">Asia</string>
+    <string name="region_name_oceania">Oceania</string>
+</resources>

@@ -1,10 +1,10 @@
 package ecnill.country.app.di
 
-import org.koin.core.module.Module
+import ecnill.country.feature.region.di.RegionGraph
 
 internal object AppGraph {
 
-    private val features: List<Module> = listOf()
+    private val features = RegionGraph.module
 
     val modules = features
 }
