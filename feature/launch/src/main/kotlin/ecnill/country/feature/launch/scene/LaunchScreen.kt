@@ -6,10 +6,8 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -23,6 +21,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ecnill.country.feature.launch.R
+import ecnill.design.component.VerticalSpacer
 import ecnill.design.theme.DesignTheme
 import kotlinx.coroutines.delay
 
@@ -54,7 +53,7 @@ fun LaunchScreen(navigateToNext: () -> Unit) = DesignTheme {
             contentDescription = stringResource(R.string.launch_icon_content_description)
         )
 
-        Spacer(modifier = Modifier.width(16.dp))
+        VerticalSpacer(16.dp)
         Text(
             text = stringResource(id = R.string.launch_title),
             fontSize = 18.sp,
