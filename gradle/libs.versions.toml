@@ -6,6 +6,8 @@ coroutines = "1.6.0"
 compose = "1.1.0"
 detekt = "1.19.0"
 koin = "3.2.0-beta-1"
+moshi = "1.13.0"
+retrofit = "2.9.0"
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
@@ -34,5 +36,10 @@ detekt-ktLint = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", vers
 
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+
+moshi-main = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
+moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
+retrofit-main = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 
 timber = "com.jakewharton.timber:timber:4.7.1"
