@@ -59,6 +59,7 @@ fun LaunchScreen(navigateToNext: () -> Unit) = DesignTheme {
             text = stringResource(id = R.string.launch_title),
             fontSize = 18.sp,
             fontFamily = FontFamily.Monospace,
+            color = DesignTheme.colors.primary,
         )
     }
 }

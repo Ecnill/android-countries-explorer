@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -12,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 @Composable
 fun DesignPreviewTheme(
     modifier: Modifier = Modifier,
-    backgroundProvider: @Composable () -> Color = { MaterialTheme.colors.background },
+    backgroundProvider: @Composable () -> Color = { DesignTheme.colors.background },
     content: @Composable ColumnScope.() -> Unit,
 ) = DesignTheme {
     Column(
