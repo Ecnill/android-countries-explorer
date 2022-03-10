@@ -43,3 +43,8 @@ retrofit-main = { module = "com.squareup.retrofit2:retrofit", version.ref = "ret
 retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 
 timber = "com.jakewharton.timber:timber:4.7.1"
+
+# testing
+kotest-assertions = "io.kotest:kotest-assertions-core-jvm:4.6.3"
+mockk = "io.mockk:mockk:1.12.1"
+junit-main = "junit:junit:4.13.2"
