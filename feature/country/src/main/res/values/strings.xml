@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="country_list_header_title">Countries of %s</string>
+    <string name="country_list_error_message">The list is empty probably due to some error. Try again later.</string>
+
+    <string name="country_list_info_unofficial_name">Unofficial name</string>
+    <string name="country_list_info_capital">Capital</string>
+</resources>

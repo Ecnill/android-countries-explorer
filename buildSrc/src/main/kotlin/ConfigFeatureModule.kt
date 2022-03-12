@@ -7,6 +7,7 @@ class ConfigFeatureModule : Plugin<Project> by PluginDelegate plugin {
     apply<ConfigAndroidBuild>()
     apply<ConfigCompiler>()
     apply<ConfigComposeCompiler>()
+    apply<ConfigUnitTest>()
 
     dependencies {
         "implementation"(libs.dependency("koin.android"))
