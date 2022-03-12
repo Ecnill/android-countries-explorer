@@ -2,4 +2,5 @@
 <resources>
     <string name="design_button_back">Back</string>
     <string name="design_button_close">Close</string>
+    <string name="design_error_icon_content_description">Some error occurred</string>
 </resources>
