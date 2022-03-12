@@ -10,7 +10,7 @@ data class CountryRichModel(
     val capital: String,
     val population: Long,
     val currencies: List<String>,
-    val mapUrl: String,
+    val mapUrl: String?,
     val languages: List<String>,
     val area: Double
 )

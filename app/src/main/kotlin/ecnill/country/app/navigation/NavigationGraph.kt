@@ -56,6 +56,7 @@ private fun NavGraphBuilder.countryGraph(navController: NavController) {
         ) { backStackEntry ->
             CountryScreen(
                 country = backStackEntry.arguments?.getString("country").orEmpty(),
+                navigateBack = navController::navigateUp
             )
         }
     }
