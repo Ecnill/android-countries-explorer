@@ -6,7 +6,7 @@ import com.squareup.moshi.JsonClass
  * This is generated JSON -> Kotlin POJO entity, naming and availability of properties doesn't matter.
  */
 @JsonClass(generateAdapter = true)
-internal data class CountryResponse(
+internal data class CountryJson(
     val name: Name,
     val tld: List<String>?,
     val independent: Boolean?,

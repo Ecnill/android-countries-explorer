@@ -8,9 +8,9 @@ import ecnill.arch.scene.withNoEffect
 import ecnill.country.feature.country.R
 import ecnill.country.feature.country.data.CountryRepository
 import ecnill.country.feature.country.format.CountryDetailFormat
+import ecnill.country.feature.country.model.CountryDetailItem
 import ecnill.country.feature.country.model.CountryRequest
 import ecnill.country.feature.country.scene.detail.CountryState.Property
-import ecnill.country.model.CountryRichModel
 
 internal class CountryReducer(
     private val fetchCountry: FetchCountryEffect.Factory,
@@ -22,7 +22,7 @@ internal class CountryReducer(
             is CountryAction.Fetched -> state.withNoEffect {
                 copy(
                     loading = false,
-                    error = false,
+                    error = action.country == null,
                     officialName = action.country?.officialName.orEmpty(),
                     flagPng = action.country?.flagPng,
                     properties = action.country.toProperties(),
@@ -36,7 +36,7 @@ internal class CountryReducer(
         }
     }
 
-    private fun CountryRichModel?.toProperties(): List<Property> = if (this == null) {
+    private fun CountryDetailItem?.toProperties(): List<Property> = if (this == null) {
         emptyList()
     } else {
         buildList {

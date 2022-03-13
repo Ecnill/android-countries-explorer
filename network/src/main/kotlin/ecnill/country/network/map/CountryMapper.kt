@@ -1,19 +1,20 @@
 package ecnill.country.network.map
 
-import ecnill.country.model.CountryRichModel
-import ecnill.country.model.CountryShortModel
-import ecnill.country.network.api.CountryResponse
+import ecnill.country.network.api.CountryJson
+import ecnill.country.network.model.CountryLongResponse
+import ecnill.country.network.model.CountryShortResponse
 
 internal object CountryMapper {
 
-    fun CountryResponse.toShort() = CountryShortModel(
+    fun CountryJson.toShort() = CountryShortResponse(
+        region = region,
         officialName = name.official,
         commonName = name.common,
         flagPng = flags.png,
         capital = capital?.firstOrNull().orEmpty(),
     )
 
-    fun CountryResponse.toRich() = CountryRichModel(
+    fun CountryJson.toRich() = CountryLongResponse(
         officialName = name.official,
         commonName = name.common,
         flagPng = flags.png,

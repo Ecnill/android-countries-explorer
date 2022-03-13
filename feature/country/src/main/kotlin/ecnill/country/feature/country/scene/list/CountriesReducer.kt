@@ -19,27 +19,30 @@ internal class CountriesReducer(
             }
             is CountriesAction.Fetching -> {
                 state.mutate { copy(loading = true, region = action.region) }
-                fetchingEffect(action.region)
+                fetchingEffect(action.region, false)
             }
             CountriesAction.Refreshing -> {
                 state.mutate { copy(swiping = true) }
-                fetchingEffect(state.get().region)
+                fetchingEffect(state.get().region, true)
             }
         }
     }
 
-    private fun fetchingEffect(region: String) = effectOf(fetchCountries.create(RegionRequest(region)))
+    private fun fetchingEffect(region: String, forceFetch: Boolean) =
+        effectOf(fetchCountries.create(RegionRequest(region), forceFetch))
 }
 
 internal class FetchCountriesEffect(
     private val region: RegionRequest,
-    private val countryRepository: CountryRepository,
+    private val forceFetch: Boolean,
+    private val repository: CountryRepository,
 ) : Effect<CountriesAction.Fetched> {
 
-    override suspend fun invoke() = CountriesAction.Fetched(countryRepository.fetchList(region))
+    override suspend fun invoke() = CountriesAction.Fetched(repository.fetchList(region, forceFetch))
 
-    class Factory(private val countryRepository: CountryRepository) {
+    class Factory(private val repository: CountryRepository) {
 
-        fun create(region: RegionRequest) = FetchCountriesEffect(region, countryRepository)
+        fun create(region: RegionRequest, forceFetch: Boolean) =
+            FetchCountriesEffect(region = region, forceFetch = forceFetch, repository)
     }
 }

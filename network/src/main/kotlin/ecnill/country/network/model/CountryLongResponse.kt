@@ -1,9 +1,9 @@
-package ecnill.country.model
+package ecnill.country.network.model
 
 /**
- * The pure model represents information about the country in a long format.
+ * The network response about the country in a long format.
  */
-data class CountryRichModel(
+data class CountryLongResponse(
     val officialName: String,
     val commonName: String,
     val flagPng: String?,

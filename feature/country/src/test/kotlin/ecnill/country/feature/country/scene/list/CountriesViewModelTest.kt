@@ -2,8 +2,8 @@ package ecnill.country.feature.country.scene.list
 
 import ecnill.arch.test.TestDispatcherRule
 import ecnill.arch.test.lastValue
+import ecnill.country.feature.country.model.CountryListItem
 import ecnill.country.feature.country.model.RegionRequest
-import ecnill.country.model.CountryShortModel
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.mockk.coEvery
@@ -54,7 +54,7 @@ internal class CountriesViewModelTest {
     private fun reducer(): CountriesReducer = spyk(
         CountriesReducer(
             fetchCountries = mockk {
-                every { create(RegionRequest(any())) } returns mockk {
+                every { create(RegionRequest(any()), any()) } returns mockk {
                     coEvery { this@mockk.invoke() } returns CountriesAction.Fetched(countries())
                 }
             }
@@ -62,7 +62,8 @@ internal class CountriesViewModelTest {
     )
 
     private fun countries() = listOf(
-        CountryShortModel(
+        CountryListItem(
+            region = "region",
             officialName = "Country 1",
             commonName = "",
             flagPng = null,

@@ -8,6 +8,7 @@ detekt = "1.19.0"
 koin = "3.2.0-beta-1"
 moshi = "1.13.0"
 retrofit = "2.9.0"
+room = "2.4.2"
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
@@ -41,6 +42,11 @@ moshi-main = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
 retrofit-main = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+
+room-main = { module =  "androidx.room:room-common", version.ref = "room" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 
 timber = "com.jakewharton.timber:timber:4.7.1"
 

@@ -1,10 +1,10 @@
 package ecnill.country.feature.country.scene.list
 
-import ecnill.country.model.CountryShortModel
+import ecnill.country.feature.country.model.CountryListItem
 
 internal data class CountriesState(
     val loading: Boolean = false,
     val swiping: Boolean = false,
     val region: String = "",
-    val countries: List<CountryShortModel> = emptyList()
+    val countries: List<CountryListItem> = emptyList()
 )

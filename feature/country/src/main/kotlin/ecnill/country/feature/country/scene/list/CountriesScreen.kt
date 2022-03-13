@@ -27,8 +27,8 @@ import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshIndicator
 import com.google.accompanist.swiperefresh.SwipeRefreshState
 import ecnill.country.feature.country.R
+import ecnill.country.feature.country.model.CountryListItem
 import ecnill.country.feature.country.scene.ui.CountryInformationRow
-import ecnill.country.model.CountryShortModel
 import ecnill.design.component.Header
 import ecnill.design.component.HorizontalSpacer
 import ecnill.design.component.ProgressIndicator
@@ -100,7 +100,7 @@ fun CountriesScreen(
 }
 
 @Composable
-private fun CountryItem(country: CountryShortModel, onItemClicked: (String) -> Unit) {
+private fun CountryItem(country: CountryListItem, onItemClicked: (String) -> Unit) {
     Row(
         modifier = Modifier.padding(vertical = 8.dp).clickable { onItemClicked(country.officialName) },
         verticalAlignment = Alignment.CenterVertically
