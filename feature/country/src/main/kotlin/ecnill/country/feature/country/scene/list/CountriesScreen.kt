@@ -10,7 +10,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Card
 import androidx.compose.material.Divider
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -35,7 +36,7 @@ import ecnill.design.component.ProgressIndicator
 import ecnill.design.component.RemoteImage
 import ecnill.design.component.VerticalSpacer
 import ecnill.design.screen.ErrorScreen
-import ecnill.design.theme.DesignTheme
+import ecnill.design.theme.CountryTheme
 import org.koin.androidx.compose.getViewModel
 import org.koin.core.parameter.parametersOf
 
@@ -45,7 +46,7 @@ fun CountriesScreen(
     @StringRes regionResId: Int?,
     navigateToNext: (country: String) -> Unit,
     navigateBack: () -> Unit,
-) = DesignTheme {
+) = CountryTheme {
     val viewModel: CountriesViewModel = getViewModel { parametersOf(region) }
     val state = viewModel.states.collectAsState().value
 
@@ -58,16 +59,14 @@ fun CountriesScreen(
                 ),
                 navigationButton = Header.NavigationButton(
                     action = navigateBack,
-                    type = Header.NavigationButton.Type.Back
+                    type = if (state.error) Header.NavigationButton.Type.Close else Header.NavigationButton.Type.Back
                 )
             )
         },
         content = {
             when {
                 state.loading -> ProgressIndicator()
-                !state.loading && state.countries.isEmpty() -> {
-                    ErrorScreen(message = stringResource(R.string.country_list_error_message))
-                }
+                state.error -> ErrorScreen(message = stringResource(R.string.country_list_error_message))
                 else -> {
                     SwipeRefresh(
                         state = SwipeRefreshState(state.swiping),
@@ -77,7 +76,7 @@ fun CountriesScreen(
                                 state = state,
                                 refreshTriggerDistance = trigger,
                                 scale = true,
-                                backgroundColor = DesignTheme.colors.primary,
+                                backgroundColor = CountryTheme.colors.primary,
                             )
                         }
                     ) {
@@ -85,11 +84,8 @@ fun CountriesScreen(
                             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
                             verticalArrangement = Arrangement.spacedBy(16.dp)
                         ) {
-                            itemsIndexed(state.countries) { index, country ->
+                            items(state.countries) { country ->
                                 CountryItem(country = country, onItemClicked = navigateToNext)
-                                if (index != state.countries.lastIndex) {
-                                    Divider(color = DesignTheme.colors.onBackground, thickness = 1.dp)
-                                }
                             }
                         }
                     }
@@ -101,34 +97,44 @@ fun CountriesScreen(
 
 @Composable
 private fun CountryItem(country: CountryListItem, onItemClicked: (String) -> Unit) {
-    Row(
-        modifier = Modifier.padding(vertical = 8.dp).clickable { onItemClicked(country.officialName) },
-        verticalAlignment = Alignment.CenterVertically
+    Card(
+        modifier = Modifier.fillMaxWidth().clickable { onItemClicked(country.officialName) },
+        elevation = 0.dp,
     ) {
-        RemoteImage(
-            imageUrl = country.flagPng.orEmpty(),
-            modifier = Modifier
-                .size(width = 96.dp, height = 60.dp)
-                .clip(RectangleShape)
-                .border(width = 1.dp, color = DesignTheme.colors.divider)
-        )
-        HorizontalSpacer(16.dp)
+        Row(
+            modifier = Modifier.padding(8.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            RemoteImage(
+                imageUrl = country.flagPng.orEmpty(),
+                modifier = Modifier
+                    .size(width = 80.dp, height = 56.dp)
+                    .clip(RectangleShape)
+                    .border(width = 1.dp, color = CountryTheme.colors.divider)
+            )
+            HorizontalSpacer(8.dp)
 
-        Column(modifier = Modifier.padding(start = 4.dp)) {
-            Text(text = country.officialName, fontSize = 20.sp, color = DesignTheme.colors.primaryText)
-            VerticalSpacer(8.dp)
-
-            if (country.officialName != country.commonName) {
+            Column(modifier = Modifier.padding(start = 4.dp)) {
+                Text(text = country.officialName, fontSize = 20.sp, color = CountryTheme.colors.primaryText)
+                Divider(
+                    modifier = Modifier.padding(top = 4.dp, end = 32.dp),
+                    color = CountryTheme.colors.divider,
+                )
+                if (country.officialName != country.commonName) {
+                    CountryInformationRow(
+                        modifier = Modifier.padding(top = 8.dp, bottom = 4.dp),
+                        title = stringResource(id = R.string.country_list_info_common_name),
+                        value = country.commonName
+                    )
+                } else {
+                    VerticalSpacer(16.dp)
+                }
                 CountryInformationRow(
-                    title = stringResource(id = R.string.country_list_info_unofficial_name),
-                    value = country.commonName
+                    title = stringResource(id = R.string.country_list_info_capital),
+                    value = country.capital
                 )
                 VerticalSpacer(4.dp)
             }
-            CountryInformationRow(
-                title = stringResource(id = R.string.country_list_info_capital),
-                value = country.capital
-            )
         }
     }
 }

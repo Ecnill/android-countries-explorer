@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
-fun DesignTheme(
+fun CountryTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
@@ -23,7 +23,7 @@ fun DesignTheme(
     if (darkTheme) {
         systemUiController.setSystemBarsColor(Color.Transparent)
     } else {
-        systemUiController.setSystemBarsColor(DesignTheme.colors.primaryVariant)
+        systemUiController.setSystemBarsColor(CountryTheme.colors.primaryVariant)
     }
 
     CompositionLocalProvider(
@@ -34,14 +34,14 @@ fun DesignTheme(
                 primary = colors.primary,
                 primaryVariant = colors.primaryVariant,
                 secondary = colors.secondary,
-                secondaryVariant = colors.secondary,
+                secondaryVariant = colors.secondaryVariant,
                 background = colors.background,
-                surface = colors.background,
+                surface = colors.surface,
                 error = colors.error,
                 onPrimary = colors.onPrimary,
                 onSecondary = colors.onSecondary,
                 onBackground = colors.onBackground,
-                onSurface = colors.onBackground,
+                onSurface = colors.onSurface,
                 onError = colors.onError,
                 isLight = darkTheme
             ),
@@ -57,7 +57,7 @@ fun DesignTheme(
 /**
  * The access to the colors and other components of the theme.
  */
-object DesignTheme {
+object CountryTheme {
 
     /**
      * Retrieves the current [DesignColors] at the call site's position in the hierarchy.

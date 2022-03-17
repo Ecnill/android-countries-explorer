@@ -4,6 +4,7 @@ import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,11 +23,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ecnill.country.feature.launch.R
 import ecnill.design.component.VerticalSpacer
-import ecnill.design.theme.DesignTheme
+import ecnill.design.theme.CountryTheme
 import kotlinx.coroutines.delay
 
 @Composable
-fun LaunchScreen(navigateToNext: () -> Unit) = DesignTheme {
+fun LaunchScreen(navigateToNext: () -> Unit) = CountryTheme {
     val scale = remember { Animatable(0f) }
 
     LaunchedEffect(key1 = true) {
@@ -45,7 +46,7 @@ fun LaunchScreen(navigateToNext: () -> Unit) = DesignTheme {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize().background(CountryTheme.colors.background)
     ) {
         Image(
             modifier = Modifier.size(160.dp).scale(scale.value),
@@ -56,9 +57,9 @@ fun LaunchScreen(navigateToNext: () -> Unit) = DesignTheme {
         VerticalSpacer(16.dp)
         Text(
             text = stringResource(id = R.string.launch_title),
-            fontSize = 18.sp,
+            fontSize = 20.sp,
             fontFamily = FontFamily.Monospace,
-            color = DesignTheme.colors.primary,
+            color = CountryTheme.colors.primary,
         )
     }
 }

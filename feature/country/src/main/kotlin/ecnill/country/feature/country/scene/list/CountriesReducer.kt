@@ -15,10 +15,10 @@ internal class CountriesReducer(
     override fun reduce(state: Mutable<CountriesState>, action: CountriesAction): List<Effect<CountriesAction>> {
         return when (action) {
             is CountriesAction.Fetched -> state.withNoEffect {
-                copy(loading = false, swiping = false, countries = action.countries)
+                copy(loading = false, swiping = false, error = action.countries.isEmpty(), countries = action.countries)
             }
             is CountriesAction.Fetching -> {
-                state.mutate { copy(loading = true, region = action.region) }
+                state.mutate { copy(loading = true, error = false, region = action.region) }
                 fetchingEffect(action.region, false)
             }
             CountriesAction.Refreshing -> {

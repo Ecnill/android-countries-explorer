@@ -1,7 +1,9 @@
 # Countries Explorer
 The app shows some useful information about countries around the world.
 
-<img src="./doc/screenshot/launch_screen.png" width="160" height="320"> <img src="./doc/screenshot/regions_screen.png" width="160" height="320"> <img src="./doc/screenshot/countries_screen.png" width="160" height="320"> <img src="./doc/screenshot/country_screen.png" width="160" height="320">
+<img src="./doc/screenshot/launch_screen.png" width="160" height="320"> <img src="./doc/screenshot/regions_screen.png" width="160" height="320"> <img src="./doc/screenshot/countries_screen.png" width="160" height="320">
+
+<img src="./doc/screenshot/country_screen.png" width="160" height="320"> <img src="./doc/screenshot/countries_screen_dark.png" width="160" height="320"> <img src="./doc/screenshot/country_screen_dark.png" width="160" height="320">
 
 ## Overview
 The modern Android App development demo using Koin, Coroutines, Jetpack (Compose UI & navigation, ViewModel, Room), and Material design based on MVI-way multimodule architecture.

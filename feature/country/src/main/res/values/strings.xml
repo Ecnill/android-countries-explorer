@@ -3,7 +3,7 @@
     <string name="country_list_header_title">Countries of %s</string>
     <string name="country_list_error_message">The list is empty probably due to some error. Try again later.</string>
 
-    <string name="country_list_info_unofficial_name">Unofficial name</string>
+    <string name="country_list_info_common_name">Common name</string>
     <string name="country_list_info_capital">Capital</string>
 
     <string name="country_detail_error_message">The detail is empty probably due to some error. Try again later.</string>

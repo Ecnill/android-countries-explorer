@@ -15,7 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import ecnill.design.R
 import ecnill.design.component.VerticalSpacer
-import ecnill.design.theme.DesignTheme
+import ecnill.design.theme.CountryTheme
 
 @Composable
 fun ErrorScreen(message: String, modifier: Modifier = Modifier) {
@@ -24,8 +24,8 @@ fun ErrorScreen(message: String, modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Icon(
-            modifier = Modifier.size(64.dp),
-            tint = DesignTheme.colors.error,
+            modifier = Modifier.size(80.dp),
+            tint = CountryTheme.colors.error,
             painter = painterResource(id = R.drawable.ic_report),
             contentDescription = stringResource(id = R.string.design_error_icon_content_description)
         )
@@ -33,7 +33,7 @@ fun ErrorScreen(message: String, modifier: Modifier = Modifier) {
         Text(
             text = message,
             textAlign = TextAlign.Center,
-            color = DesignTheme.colors.primaryText,
+            color = CountryTheme.colors.primaryText,
         )
     }
 }
