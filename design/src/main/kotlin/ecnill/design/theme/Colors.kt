@@ -13,11 +13,14 @@ class DesignColors(
     primary: Color,
     primaryVariant: Color,
     secondary: Color,
+    secondaryVariant: Color,
     background: Color,
+    surface: Color,
     error: Color,
     onPrimary: Color,
     onSecondary: Color,
     onBackground: Color,
+    onSurface: Color,
     onError: Color,
     divider: Color,
     primaryText: Color,
@@ -29,7 +32,11 @@ class DesignColors(
         internal set
     var secondary by mutableStateOf(secondary)
         internal set
+    var secondaryVariant by mutableStateOf(secondaryVariant)
+        internal set
     var background by mutableStateOf(background)
+        internal set
+    var surface by mutableStateOf(surface)
         internal set
     var error by mutableStateOf(error)
         internal set
@@ -38,6 +45,8 @@ class DesignColors(
     var onSecondary by mutableStateOf(onSecondary)
         internal set
     var onBackground by mutableStateOf(onBackground)
+        internal set
+    var onSurface by mutableStateOf(onSurface)
         internal set
     var onError by mutableStateOf(onError)
         internal set
@@ -53,14 +62,17 @@ class DesignColors(
             "primary=$primary, " +
             "primaryVariant=$primaryVariant, " +
             "secondary=$secondary, " +
+            "secondaryVariant=$secondaryVariant, " +
             "background=$background, " +
+            "surface=$surface, " +
             "error=$error, " +
             "onPrimary=$onPrimary, " +
             "onSecondary=$onSecondary, " +
             "onBackground=$onBackground, " +
+            "onSurface=$onSurface, " +
             "onError=$onError, " +
-            "divider=$divider, " +
-            "primaryText=$primaryText, " +
+            "divider=$divider" +
+            "primaryText=$primaryText" +
             "isLight=$isLight" +
             ")"
     }
@@ -71,14 +83,17 @@ class DesignColors(
  * @see darkColors
  */
 internal fun lightColors(
-    primary: Color = Color(0xFF009688),
-    primaryVariant: Color = Color(0xFF00796B),
-    secondary: Color = Color(0xFF607D8B),
-    background: Color = Color.White,
+    primary: Color = Color(0xFF26a69a),
+    primaryVariant: Color = Color(0xFF00766c),
+    secondary: Color = Color(0xFF4fc3f7),
+    secondaryVariant: Color = Color(0xFF0093c4),
+    background: Color = Color(0xFFEBF7FC),
+    surface: Color = Color.White,
     error: Color = Color(0xFFFF5252),
-    onPrimary: Color = Color.White,
+    onPrimary: Color = Color(0xFFEEEDED),
     onSecondary: Color = Color.White,
     onBackground: Color = Color.Black,
+    onSurface: Color = Color.Black,
     onError: Color = Color.White,
     divider: Color = Color(0xFFBDBDBD),
     primaryText: Color = Color(0xFF212121),
@@ -86,11 +101,14 @@ internal fun lightColors(
     primary = primary,
     primaryVariant = primaryVariant,
     secondary = secondary,
+    secondaryVariant = secondaryVariant,
     background = background,
+    surface = surface,
     error = error,
     onPrimary = onPrimary,
     onSecondary = onSecondary,
     onBackground = onBackground,
+    onSurface = onSurface,
     onError = onError,
     divider = divider,
     primaryText = primaryText,
@@ -105,27 +123,32 @@ internal fun lightColors(
  * @see lightColors
  */
 internal fun darkColors(
-    // TODO: these colors are temporary, define a better dark palette
-    primary: Color = Color(0xFFBB86FC),
-    primaryVariant: Color = Color(0xFF3700B3),
-    secondary: Color = Color(0xFF03DAC6),
-    background: Color = Color(0xFF121212),
-    error: Color = Color(0xFFCF6679),
-    onPrimary: Color = Color.White,
-    onSecondary: Color = Color.White,
-    onBackground: Color = Color.White,
+    primary: Color = Color(0xFF004d40),
+    primaryVariant: Color = Color(0xFF00251a),
+    secondary: Color = Color(0xFF484848),
+    secondaryVariant: Color = Color(0xFF111111),
+    background: Color = Color(0xFF212121),
+    surface: Color = Color(0xFF121212),
+    error: Color = Color(0xFFBE3E55),
+    onPrimary: Color = Color(0xB3FFFFFF),
+    onSecondary: Color = Color(0xA6FFFFFF),
+    onBackground: Color = Color(0xA6FFFFFF),
+    onSurface: Color = Color(0xA6FFFFFF),
     onError: Color = Color.White,
-    divider: Color = Color.White,
-    primaryText: Color = Color.White,
+    divider: Color = Color(0x80FFFFFF),
+    primaryText: Color = Color(0xB3FFFFFF),
 ): DesignColors = DesignColors(
     primary = primary,
     primaryVariant = primaryVariant,
     secondary = secondary,
+    secondaryVariant = secondaryVariant,
     background = background,
+    surface = surface,
     error = error,
     onPrimary = onPrimary,
     onSecondary = onSecondary,
     onBackground = onBackground,
+    onSurface = onSurface,
     onError = onError,
     divider = divider,
     primaryText = primaryText,

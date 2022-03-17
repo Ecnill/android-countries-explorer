@@ -19,13 +19,13 @@ import androidx.compose.ui.unit.dp
 import ecnill.country.feature.region.R
 import ecnill.country.feature.region.data.Region
 import ecnill.design.component.Header
-import ecnill.design.theme.DesignTheme
+import ecnill.design.theme.CountryTheme
 import java.util.Locale
 import org.koin.androidx.compose.getViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun RegionsScreen(navigateToNext: (region: String, regionResId: Int) -> Unit) = DesignTheme {
+fun RegionsScreen(navigateToNext: (region: String, regionResId: Int) -> Unit) = CountryTheme {
     val viewModel: RegionsViewModel = getViewModel()
     Scaffold(
         topBar = { Header(title = stringResource(id = R.string.region_header_title)) },
@@ -49,15 +49,13 @@ fun RegionsScreen(navigateToNext: (region: String, regionResId: Int) -> Unit) = 
 @Composable
 private fun RegionItem(region: Region, onItemClicked: (String, Int) -> Unit) {
     Card(
-        backgroundColor = DesignTheme.colors.secondary,
-        contentColor = DesignTheme.colors.onSecondary,
         modifier = Modifier.padding(16.dp).fillMaxWidth().clickable { onItemClicked(region.key, region.resId) },
-        elevation = 4.dp,
+        elevation = 0.dp,
     ) {
         Text(
             text = stringResource(id = region.resId).uppercase(Locale.US),
             textAlign = TextAlign.Center,
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(24.dp),
         )
     }
 }

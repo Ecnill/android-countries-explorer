@@ -8,7 +8,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import coil.compose.SubcomposeAsyncImage
 import ecnill.design.R
-import ecnill.design.theme.DesignTheme
+import ecnill.design.theme.CountryTheme
 
 @Composable
 fun RemoteImage(
@@ -23,7 +23,7 @@ fun RemoteImage(
         error = {
             Icon(
                 modifier = modifier,
-                tint = DesignTheme.colors.error,
+                tint = CountryTheme.colors.error,
                 painter = painterResource(id = R.drawable.ic_flag),
                 contentDescription = stringResource(id = R.string.design_error_icon_content_description)
             )

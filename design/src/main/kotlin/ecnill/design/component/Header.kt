@@ -12,8 +12,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ecnill.design.R
-import ecnill.design.theme.DesignPreviewTheme
-import ecnill.design.theme.DesignTheme
+import ecnill.design.theme.CountryPreviewTheme
+import ecnill.design.theme.CountryTheme
 
 /**
  * A holder for navigation buttons in a toolbar.
@@ -59,15 +59,15 @@ fun Header(
         title = {
             Text(
                 text = title.orEmpty(),
-                color = DesignTheme.colors.onPrimary,
+                color = CountryTheme.colors.onPrimary,
             )
         },
-        backgroundColor = DesignTheme.colors.primaryVariant,
+        backgroundColor = CountryTheme.colors.primaryVariant,
         navigationIcon = {
             if (navigationButton != null) {
                 IconButton(onClick = navigationButton.action) {
                     Icon(
-                        tint = DesignTheme.colors.onPrimary,
+                        tint = CountryTheme.colors.onPrimary,
                         painter = painterResource(id = navigationButton.type.icon),
                         contentDescription = stringResource(id = navigationButton.type.contentDescriptionId)
                     )
@@ -80,7 +80,7 @@ fun Header(
 @Preview(name = "Day Mode", uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview(name = "Night Mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun HeaderPreview() = DesignPreviewTheme {
+private fun HeaderPreview() = CountryPreviewTheme {
     Header(
         title = "Header Preview",
         navigationButton = Header.NavigationButton(action = {}, type = Header.NavigationButton.Type.Back)

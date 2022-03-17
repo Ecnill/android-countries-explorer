@@ -25,12 +25,12 @@ import ecnill.design.component.Header
 import ecnill.design.component.ProgressIndicator
 import ecnill.design.component.RemoteImage
 import ecnill.design.screen.ErrorScreen
-import ecnill.design.theme.DesignTheme
+import ecnill.design.theme.CountryTheme
 import org.koin.androidx.compose.getViewModel
 import org.koin.core.parameter.parametersOf
 
 @Composable
-fun CountryScreen(country: String, navigateBack: () -> Unit) = DesignTheme {
+fun CountryScreen(country: String, navigateBack: () -> Unit) = CountryTheme {
     val viewModel: CountryViewModel = getViewModel { parametersOf(country) }
     val state = viewModel.states.collectAsState().value
 
@@ -61,7 +61,7 @@ private fun CountryDetail(state: CountryState) {
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
-            color = DesignTheme.colors.primaryText,
+            color = CountryTheme.colors.primaryText,
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
         RemoteImage(
@@ -72,11 +72,11 @@ private fun CountryDetail(state: CountryState) {
                 .align(Alignment.CenterHorizontally)
         )
 
-        state.properties.forEach {
+        state.properties.forEachIndexed { index, property ->
             CountryInformationRow(
-                title = stringResource(id = it.titleResId),
-                value = it.value,
-                modifier = Modifier.padding(vertical = 4.dp)
+                title = stringResource(id = property.titleResId),
+                value = property.value,
+                modifier = Modifier.padding(top = if (index == 0) 2.dp else 8.dp, bottom = 8.dp),
             )
         }
 
@@ -84,7 +84,7 @@ private fun CountryDetail(state: CountryState) {
         if (state.mapUrl != null) {
             Button(
                 onClick = { uriHandler.openUri(state.mapUrl) },
-                modifier = Modifier.fillMaxWidth().padding(16.dp).align(Alignment.CenterHorizontally)
+                modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp).align(Alignment.CenterHorizontally)
             ) {
                 Text(text = stringResource(id = R.string.country_detail_button_map), modifier = Modifier.padding(8.dp))
             }
